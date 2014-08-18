@@ -12,7 +12,7 @@
 		<div class="galleryThumbnail" style="display:table">
 			<div class="galleryToolbar" style="display:none;position:absolute;" id="{{ item.getUuid }}_toolbar"></div>
 			{% set src = velacms_get_media_file_image(item.getListItem.getMedia) %}
-			<a class="fancybox thumbnail" rel="group" href="{{ src }}"><img  src="{{ src | imagine_filter('konstancin_article_gallery') }}"></a>
+			<a class="fancybox thumbnail" rel="group" href="{{ src }}"><img  src="{{ src | imagine_filter('article-gallery-thumb') }}"></a>
 		</div>
 	</div>
 	{% else %}
