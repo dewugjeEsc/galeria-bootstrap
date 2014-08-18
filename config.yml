@@ -1,0 +1,5 @@
+
+        article_gallery_thumb:
+            quality: 70
+            filters:
+                 thumbnail: { size: [230, 200], mode: outbound }
