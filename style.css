@@ -1,0 +1,11 @@
+/** Artykul - style dla galerii  **/
+
+.gallery-wrapper .gallery-item {
+
+    overflow:hidden;
+
+    max-height:250px;
+
+    margin-top:10px;
+
+}

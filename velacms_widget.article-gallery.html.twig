@@ -1,0 +1,38 @@
+{% extends "VelaCmsWidgetBundle:Widgets:velacms_widget.base.html.twig" %}
+{% block widgetContent %}
+<br class="clear">
+	{% if widget.getSortingEnabled %}
+		{% include 'VelaCmsWidgetBundle:Order:order.html.twig' with {orders:orders} %}
+	{% endif %}
+
+	<div class="gallery-wrapper row">
+	
+	{% for item in items %}
+	<div style=""  class="col-md-4 gallery-item" id="{{ item.getUuid }}">
+		<div class="galleryThumbnail" style="display:table">
+			<div class="galleryToolbar" style="display:none;position:absolute;" id="{{ item.getUuid }}_toolbar"></div>
+			{% set src = velacms_get_media_file_image(item.getListItem.getMedia) %}
+			<a class="fancybox thumbnail" rel="group" href="{{ src }}"><img  src="{{ src | imagine_filter('konstancin_article_gallery') }}"></a>
+		</div>
+	</div>
+	{% else %}
+	<li>
+		<img src="http://placehold.it/{{ widget.getWidth }}x{{ widget.getHeight }}">
+	</li>
+	{% endfor %}
+
+	{% if widget.getPaginationEnabled %}
+	<div class="navigation">
+	    {{ knp_pagination_render(items)|raw }}
+	</div>
+	</div>
+	{% endif %}
+	<script>
+
+	$(document).ready(function() {
+		//$(".fancybox").fancybox();
+	});
+
+	</script>
+</div>
+{% endblock %}
